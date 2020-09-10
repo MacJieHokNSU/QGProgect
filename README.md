@@ -17,31 +17,37 @@
 
 ### 2. Чтобы получить прогнозы вопросов и отчет по BLEU-2 из папки `ReDR/` запустить скрипт
 
-```python generage.py-src ../data/coqa-cqg-src.dev.txt -history ../data/coqa-cqg-history.dev.txt -tgt ../data/coqa-cqg-tgt.dev.txt -replace_unk -model ../model/_step_100000.pt -output pred.txt```
+```bash
+python generage.py-src ../data/coqa-cqg-src.dev.txt -history ../data/coqa-cqg-history.dev.txt -tgt ../data/coqa-cqg-tgt.dev.txt -replace_unk -model ../model/_step_100000.pt -output pred.txt
+```
 
 ### 3. Для обучения модели 
 
 Объединить набор данных
 
 ```bash
-python data_utils/concat_ru_data.py```
+python data_utils/concat_ru_data.py
+```
 
 Разбить набор на обучение и тест
 
 ```bash
-python data_utils/train_test_split.py```
+python data_utils/train_test_split.py
+```
 
 Подготовить датасет
 
 ```bash
-python ReDR/cqg_preprocess.py```
+python ReDR/cqg_preprocess.py
+```
 
 ```bash
-python ReDR/preprocess.py -train_src ../data/coqa-cqg-src.train.txt -train_history ../data/coqa-cqg-history.train.txt -train_ans ../data/coqa-cqg-ans.train.txt -train_tgt ../data/coqa-cqg-tgt.train.txt -valid_src ../data/coqa-cqg-src.dev.txt -valid_history ../data/coqa-cqg-history.dev.txt -valid_ans ../data/coqa-cqg-ans.dev.txt -valid_tgt ../data/coqa-cqg-tgt.dev.txt -save_data ../data/coqa-cqg --share_vocab --dynamic_dict```
+python ReDR/preprocess.py -train_src ../data/coqa-cqg-src.train.txt -train_history ../data/coqa-cqg-history.train.txt -train_ans ../data/coqa-cqg-ans.train.txt -train_tgt ../data/coqa-cqg-tgt.train.txt -valid_src ../data/coqa-cqg-src.dev.txt -valid_history ../data/coqa-cqg-history.dev.txt -valid_ans ../data/coqa-cqg-ans.dev.txt -valid_tgt ../data/coqa-cqg-tgt.dev.txt -save_data ../data/coqa-cqg --share_vocab --dynamic_dict
+```
 
 Запустить обучение
 
 ```bash
-python ReDR/train.py -data ../data/coqa-cqg -save_model out_model/ -gpu_ranks 0 --optim adam --share_embeddings -word_vec_size 256 -pre_word_vecs_enc ../data/embeddings.enc.pt -pre_word_vecs_dec ../data/embeddings.dec.pt  --fix_word_vecs_enc --fix_word_vecs_dec```
-
+python python ReDR/train.py -data ../data/coqa-cqg -save_model out_model/ -gpu_ranks 0 --optim adam --share_embeddings -word_vec_size 256 -pre_word_vecs_enc ../data/embeddings.enc.pt -pre_word_vecs_dec ../data/embeddings.dec.pt  --fix_word_vecs_enc --fix_word_vecs_dec
+```
 
