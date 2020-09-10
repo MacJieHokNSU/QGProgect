@@ -23,20 +23,25 @@
 
 Объединить набор данных
 
-```python data_utils/concat_ru_data.py```
+```bash
+python data_utils/concat_ru_data.py```
 
 Разбить набор на обучение и тест
 
-```python data_utils/train_test_split.py```
+```bash
+python data_utils/train_test_split.py```
 
 Подготовить датасет
 
-```python ReDR/cqg_preprocess.py```
+```bash
+python ReDR/cqg_preprocess.py```
 
-```python ReDR/preprocess.py -train_src ../data/coqa-cqg-src.train.txt -train_history ../data/coqa-cqg-history.train.txt -train_ans ../data/coqa-cqg-ans.train.txt -train_tgt ../data/coqa-cqg-tgt.train.txt -valid_src ../data/coqa-cqg-src.dev.txt -valid_history ../data/coqa-cqg-history.dev.txt -valid_ans ../data/coqa-cqg-ans.dev.txt -valid_tgt ../data/coqa-cqg-tgt.dev.txt -save_data ../data/coqa-cqg --share_vocab --dynamic_dict```
+```bash
+python ReDR/preprocess.py -train_src ../data/coqa-cqg-src.train.txt -train_history ../data/coqa-cqg-history.train.txt -train_ans ../data/coqa-cqg-ans.train.txt -train_tgt ../data/coqa-cqg-tgt.train.txt -valid_src ../data/coqa-cqg-src.dev.txt -valid_history ../data/coqa-cqg-history.dev.txt -valid_ans ../data/coqa-cqg-ans.dev.txt -valid_tgt ../data/coqa-cqg-tgt.dev.txt -save_data ../data/coqa-cqg --share_vocab --dynamic_dict```
 
 Запустить обучение
 
-```python ReDR/train.py -data ../data/coqa-cqg -save_model out_model/ -gpu_ranks 0 --optim adam --share_embeddings -word_vec_size 256 -pre_word_vecs_enc ../data/embeddings.enc.pt -pre_word_vecs_dec ../data/embeddings.dec.pt  --fix_word_vecs_enc --fix_word_vecs_dec```
+```bash
+python ReDR/train.py -data ../data/coqa-cqg -save_model out_model/ -gpu_ranks 0 --optim adam --share_embeddings -word_vec_size 256 -pre_word_vecs_enc ../data/embeddings.enc.pt -pre_word_vecs_dec ../data/embeddings.dec.pt  --fix_word_vecs_enc --fix_word_vecs_dec```
 
 
