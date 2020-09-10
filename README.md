@@ -51,3 +51,21 @@ python ReDR/preprocess.py -train_src ../data/coqa-cqg-src.train.txt -train_histo
 python python ReDR/train.py -data ../data/coqa-cqg -save_model out_model/ -gpu_ranks 0 --optim adam --share_embeddings -word_vec_size 256 -pre_word_vecs_enc ../data/embeddings.enc.pt -pre_word_vecs_dec ../data/embeddings.dec.pt  --fix_word_vecs_enc --fix_word_vecs_dec
 ```
 
+
+## Примеры диалогов
+
+```
+Контекст
+
+- Что такое nltk? 
+- Специализированная среда для автоматической обработки текстов, созданная для работы с python.
+
+Рациональ
+
+В состав nltk входит коллекция корпусов и словарные базы данных 
+
+Вопрос
+
+Что входит в состав nltk?
+
+```
